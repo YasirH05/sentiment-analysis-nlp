@@ -65,32 +65,40 @@ with tab2:
     st.title("📊 Visual Insights from the Dataset")
     st.markdown("These WordClouds show the most frequent words in each sentiment category:")
 
+    # Get absolute path for assets
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    assets_path = os.path.join(current_dir, "assets")
+
     col1, col2, col3 = st.columns(3)
-    
+
     with col1:
-        if os.path.exists("assets/wordcloud_positive.png"):
-            st.image("assets/wordcloud_positive.png", caption="🌟 Positive Reviews", use_container_width=True)
+        pos_path = os.path.join(assets_path, "wordcloud_positive.png")
+        if os.path.exists(pos_path):
+            st.image(pos_path, caption="🌟 Positive Reviews", use_container_width=True)
         else:
             st.warning("Positive wordcloud image not found")
-    
+
     with col2:
-        if os.path.exists("assets/wordcloud_negative.png"):
-            st.image("assets/wordcloud_negative.png", caption="💢 Negative Reviews", use_container_width=True)
+        neg_path = os.path.join(assets_path, "wordcloud_negative.png")
+        if os.path.exists(neg_path):
+            st.image(neg_path, caption="💢 Negative Reviews", use_container_width=True)
         else:
             st.warning("Negative wordcloud image not found")
-    
+
     with col3:
-        if os.path.exists("assets/wordcloud_neutral.png"):
-            st.image("assets/wordcloud_neutral.png", caption="😐 Neutral Reviews", use_container_width=True)
+        neu_path = os.path.join(assets_path, "wordcloud_neutral.png")
+        if os.path.exists(neu_path):
+            st.image(neu_path, caption="😐 Neutral Reviews", use_container_width=True)
         else:
             st.warning("Neutral wordcloud image not found")
 
     st.markdown("---")
     st.subheader("🎯 Confusion Matrix Heatmap")
     st.markdown("This heatmap shows how well the model performed across each sentiment class.")
-    
-    if os.path.exists("assets/confusion_matrix.png"):
-        st.image("assets/confusion_matrix.png", use_container_width=True)
+
+    cm_path = os.path.join(assets_path, "confusion_matrix.png")
+    if os.path.exists(cm_path):
+        st.image(cm_path, use_container_width=True)
     else:
         st.warning("Confusion matrix image not found")
 
@@ -101,4 +109,5 @@ st.markdown("""
 <small>Project by Zainab Shujat 💛 | Powered by Streamlit + Naive Bayes</small>
 """,
     unsafe_allow_html=True
+
 )
