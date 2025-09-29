@@ -106,8 +106,9 @@ with tab2:
 # --- FOOTER ---
 st.markdown("""
 <hr style='border:1px solid #f0f0f0'>
-<small>Project by Zainab Shujat 💛 | Powered by Streamlit + Naive Bayes</small>
+<small>Project by Yasir Hasan | Powered by Streamlit + Naive Bayes</small>
 """,
     unsafe_allow_html=True
 
 )
+
